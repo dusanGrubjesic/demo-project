@@ -1,0 +1,61 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: dusan.coder@gmail.com
+      insert:
+        tableName: users
+        columns:
+          - column:
+              name: id
+              value: 1
+          - column:
+              name: username
+              value: 'technicalAdmin'
+          - column:
+              name: password
+              value: 'test'
+          - column:
+              name: first_name
+              value: 'technical'
+          - column:
+              name: last_name
+              value: 'admin'
+          - column:
+              name: email
+              value: 'technical.admin@demoproject.com'
+          - column:
+              name: role
+              value: 'ROLE_ADMIN'
+          - column:
+              name: status
+              value: 'ACTIVE'
+  - changeSet:
+      id: 2
+      author: dusan.coder@gmail.com
+      insert:
+        tableName: users
+        columns:
+          - column:
+              name: id
+              value: 2
+          - column:
+              name: username
+              value: 'technicalUser'
+          - column:
+              name: password
+              value: 'test'
+          - column:
+              name: first_name
+              value: 'technical'
+          - column:
+              name: last_name
+              value: 'user'
+          - column:
+              name: email
+              value: 'technical.user@demoproject.com'
+          - column:
+              name: role
+              value: 'ROLE_USER'
+          - column:
+              name: status
+              value: 'ACTIVE'

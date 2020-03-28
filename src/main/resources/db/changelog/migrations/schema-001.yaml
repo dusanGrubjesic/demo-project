@@ -1,0 +1,80 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: dusan.coder@gmail.com
+      changes:
+        - sql:
+            dbms: h2, mysql
+            sql: CREATE TYPE roles AS ENUM ('ROLE_ADMIN','ROLE_USER')
+        - sql:
+            dbms: h2, mysql
+            sql: CREATE TYPE user_status AS ENUM ('ACTIVE','DEACTIVE', 'PENDING')
+#        - property:
+#            name: now
+#            value: UNIX_TIMESTAMP()
+#            dbms: mysql
+#        - property:
+#            name: now
+#            value: CURRENT_TIMESTAMP()
+#            dbms: h2
+        - createTable:
+            tableName: users
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: username
+                  type: varchar_ignorecase(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: password
+                  type: varchar_ignorecase(500)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: first_name
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: last_name
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: email
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: role
+                  type: roles
+              - column:
+                  name: status
+                  type: user_status
+        - createTable:
+            tableName: mail
+            columns:
+              - column:
+                  name: user_id
+                  type: int
+                  constraints:
+                    foreignKeyName: fk_users_id
+                    references: users(id)
+                    nullable: false
+              - column:
+                  name: conifguration_number
+                  type: int
+                  constraints:
+                    nullable: false
+              - column:
+                  name: creation_date
+                  type: timestamp
+                  defaultValueComputed: CURRENT_TIMESTAMP
+
