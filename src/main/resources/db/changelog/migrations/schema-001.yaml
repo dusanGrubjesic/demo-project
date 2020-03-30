@@ -9,14 +9,6 @@ databaseChangeLog:
         - sql:
             dbms: h2, mysql
             sql: CREATE TYPE user_status AS ENUM ('ACTIVE','DEACTIVE', 'PENDING')
-#        - property:
-#            name: now
-#            value: UNIX_TIMESTAMP()
-#            dbms: mysql
-#        - property:
-#            name: now
-#            value: CURRENT_TIMESTAMP()
-#            dbms: h2
         - createTable:
             tableName: users
             columns:
@@ -28,7 +20,7 @@ databaseChangeLog:
                     primaryKey: true
                     nullable: false
               - column:
-                  name: username
+                  name: user_name
                   type: varchar_ignorecase(50)
                   constraints:
                     nullable: false
@@ -69,8 +61,8 @@ databaseChangeLog:
                     references: users(id)
                     nullable: false
               - column:
-                  name: conifguration_number
-                  type: int
+                  name: reference_number
+                  type: varchar(255)
                   constraints:
                     nullable: false
               - column:

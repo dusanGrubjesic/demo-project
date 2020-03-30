@@ -9,7 +9,7 @@ databaseChangeLog:
               name: id
               value: 1
           - column:
-              name: username
+              name: user_name
               value: 'technicalAdmin'
           - column:
               name: password
@@ -39,7 +39,7 @@ databaseChangeLog:
               name: id
               value: 2
           - column:
-              name: username
+              name: user_name
               value: 'technicalUser'
           - column:
               name: password
