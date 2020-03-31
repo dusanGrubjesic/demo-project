@@ -1,9 +1,8 @@
 package com.toptal.demo.demoproject.services;
 
-import com.toptal.demo.demoproject.UserInfoRepository;
+import com.toptal.demo.demoproject.repo.UserInfoRepository;
 import com.toptal.demo.demoproject.data.transfers.UserDto;
 import com.toptal.demo.demoproject.entities.UserEntity;
-import com.toptal.demo.demoproject.entities.projections.UserInfoUserNameProjection;
 import com.toptal.demo.demoproject.management.Role;
 import com.toptal.demo.demoproject.management.UserStatus;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,13 +37,14 @@ public class UserService {
 	}
 
 	public boolean validateUser(String userName, String password) {
-		Optional<String> optUserName =
-				userInfoRepository.findAllByUserName(userName)
-						.stream()
-						.filter(s -> s.getUserName().equals(userName))
-						.map(UserInfoUserNameProjection::getUserName)
-						.findFirst();
-		return optUserName.filter(s -> passwordEncoder.matches(password, s)).isPresent();
+		Optional<UserEntity> optUserEntity = userInfoRepository.findByUserNameEquals(userName);
+		return optUserEntity
+				.filter(s -> passwordEncoder.matches(password, s.getPassword()))
+				.isPresent();
+	}
+
+	public void confirmEmail(int userId) {
+		userInfoRepository.updateStatus(userId, UserStatus.ACTIVE);
 	}
 
 }
