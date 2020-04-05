@@ -1,4 +1,4 @@
-package com.toptal.demo.demoproject.configuration;
+package com.toptal.demo.demoproject.services;
 
 import com.toptal.demo.demoproject.entities.UserEntity;
 import com.toptal.demo.demoproject.repo.UserInfoRepository;
@@ -17,14 +17,14 @@ import java.util.Optional;
  * @author dusan.grubjesic
  */
 @Service
-public class CustomUserDetailsService implements UserDetailsService {
+public class UserDetailsServiceImpl implements UserDetailsService {
 
 	@Autowired
 	private UserInfoRepository userInfoRepository;
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		Optional<UserEntity> optUserEntity = userInfoRepository.findByUserNameEquals(username);
+		Optional<UserEntity> optUserEntity = userInfoRepository.findByUserName(username);
 		if (optUserEntity.isPresent()) {
 			UserEntity userEntity = optUserEntity.get();
 			return new User(
@@ -33,7 +33,7 @@ public class CustomUserDetailsService implements UserDetailsService {
 					Collections.singletonList(
 							new SimpleGrantedAuthority(userEntity.getRole().name())));
 		} else {
-			throw new UsernameNotFoundException("user not found");
+			return null;
 		}
 	}
 }

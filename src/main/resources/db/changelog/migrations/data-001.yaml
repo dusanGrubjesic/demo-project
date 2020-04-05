@@ -13,7 +13,7 @@ databaseChangeLog:
               value: 'technicalAdmin'
           - column:
               name: password
-              value: 'test'
+              value: '$2y$10$X2YPQbZMpXM.udAaYckmxecjklmNQi/YxNJ0Iv1Mna7Cl5ZOgGSje'
           - column:
               name: first_name
               value: 'technical'
@@ -43,7 +43,7 @@ databaseChangeLog:
               value: 'technicalUser'
           - column:
               name: password
-              value: 'test'
+              value: '$2y$10$X2YPQbZMpXM.udAaYckmxecjklmNQi/YxNJ0Iv1Mna7Cl5ZOgGSje'
           - column:
               name: first_name
               value: 'technical'

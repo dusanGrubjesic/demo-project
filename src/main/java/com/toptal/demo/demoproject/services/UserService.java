@@ -36,13 +36,6 @@ public class UserService {
 		return userEntity;
 	}
 
-	public boolean validateUser(String userName, String password) {
-		Optional<UserEntity> optUserEntity = userInfoRepository.findByUserNameEquals(userName);
-		return optUserEntity
-				.filter(s -> passwordEncoder.matches(password, s.getPassword()))
-				.isPresent();
-	}
-
 	public void confirmEmail(int userId) {
 		userInfoRepository.updateStatus(userId, UserStatus.ACTIVE);
 	}

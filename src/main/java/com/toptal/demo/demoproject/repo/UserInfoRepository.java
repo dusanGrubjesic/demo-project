@@ -13,7 +13,9 @@ import java.util.Optional;
 @Repository
 public interface UserInfoRepository extends CrudRepository<UserEntity, Integer> {
 
-	Optional<UserEntity> findByUserNameEquals(String userName);
+	Optional<UserEntity> findByUserName(String userName);
+
+	Optional<UserEntity> findByEmail(String mail);
 
 	default void updateStatus(int userId, UserStatus userStatus) {
 		Optional<UserEntity> userEntity = findById(userId);

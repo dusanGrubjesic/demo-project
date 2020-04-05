@@ -6,5 +6,5 @@ package com.toptal.demo.demoproject.management;
 public enum UserStatus {
 	ACTIVE,
 	DEACTIVE,
-	PENDING;
+	PENDING
 }
