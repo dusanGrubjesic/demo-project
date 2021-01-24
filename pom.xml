@@ -93,7 +93,7 @@
     </dependencies>
 
     <scm>
-        <developerConnection>scm:git:ssh://github.com/dusanGrubjesic/demo-project.git</developerConnection>
+        <developerConnection>scm:git:ssh://git@github.com/dusanGrubjesic/demo-project.git</developerConnection>
       <tag>tag1</tag>
   </scm>
 
