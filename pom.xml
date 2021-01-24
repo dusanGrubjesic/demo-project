@@ -9,7 +9,7 @@
     </parent>
     <groupId>com.toptal.demo</groupId>
     <artifactId>demo-project</artifactId>
-    <version>1.0.0</version>
+    <version>0.0.1-SNAPSHOT</version>
     <name>demo-project</name>
     <description>Demo project for Spring Boot</description>
 
