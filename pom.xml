@@ -93,6 +93,10 @@
         </dependency>
     </dependencies>
 
+    <scm>
+        <developerConnection>scm:git:ssh://github.com/dusanGrubjesic/demo-project</developerConnection>
+    </scm>
+
     <dependencyManagement>
         <dependencies>
             <dependency>
