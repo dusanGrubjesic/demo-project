@@ -9,7 +9,7 @@
     </parent>
     <groupId>com.toptal.demo</groupId>
     <artifactId>demo-project</artifactId>
-    <version>3.0.1</version>
+    <version>3.0.2-SNAPSHOT</version>
     <name>demo-project</name>
     <description>Demo project for Spring Boot</description>
 
@@ -94,7 +94,7 @@
 
     <scm>
         <developerConnection>scm:git:ssh://git@github.com/dusanGrubjesic/demo-project.git</developerConnection>
-      <tag>tag4</tag>
+      <tag>tag1</tag>
   </scm>
 
     <dependencyManagement>
